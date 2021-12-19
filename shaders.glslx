@@ -1,0 +1,46 @@
+/*! MTW-CANVAS-SPIRAL: SHADERS.GLSLX
+ * 
+ * Author: sitdisch
+ * Source: https://sitdisch.github.io/#mythemeway
+ * Copyright © 2021 sitdisch
+ *
+ * FRAGMENT SHADER IS BASED ON:
+ * 
+ * Shadertoy: ARQVOID :: 240 chars
+ * 
+ * Original Author: ENDESGA 
+ * Source: https://www.shadertoy.com/view/NscXR8/
+ * Shadertoy Default License: CC BY-NC-SA 3.0
+ * Copyright © 2021 ENDESGA 
+ */
+
+// 
+// SECTION: FRAGMENT SHADER
+//
+
+uniform float iTime;
+uniform vec3 iResolution;
+
+void mainImage(out vec4 O, vec2 I) {
+	vec3 p=iResolution,d = -.5*vec3(I+I-p.xy,p)/p.x,c = d-d;
+	for(float i=0.;i<99.;i++)
+		p = c,
+		p.z -= iTime+i*.01,
+		p.xy *= mat2(sin((p.z*=.1)+vec4(0,11,33,0))),
+		c += length(sin(p.yx)+cos(p.xz+iTime))*d;
+	O = vec4(10,0,2.5,9)/length(c);
+}
+
+export void fragmentShader() {
+	mainImage(gl_FragColor, gl_FragCoord.xy);
+}
+
+// 
+// SECTION: VERTEX SHADER
+//
+
+attribute vec3 position;
+
+export void vertexShader() {
+	gl_Position = vec4( position, 1.0 ); 
+}
