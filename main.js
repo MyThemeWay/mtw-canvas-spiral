@@ -8,10 +8,10 @@
  * 
  * Shadertoy: ARQVOID :: 240 chars
  * 
- * Original Author: ENDESGA 
+ * Original Authors: ENDESGA & Xor  
  * Source: https://www.shadertoy.com/view/NscXR8/
  * Shadertoy Default License: CC BY-NC-SA 3.0
- * Copyright © 2021 ENDESGA 
+ * Copyright © 2021 ENDESGA & Xor 
  */
 
 import { createProgramInfo, createBufferInfoFromArrays, resizeCanvasToDisplaySize, setBuffersAndAttributes, setUniforms, drawBufferInfo } from '../../../node_modules/twgl.js/dist/4.x/twgl-full.module.js';
